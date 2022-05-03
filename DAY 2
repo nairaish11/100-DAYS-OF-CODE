@@ -1,0 +1,98 @@
+// Q1. Write a program to get 3 values from user and find max and min number of it.
+
+import java.util.Scanner;
+
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        System.out.print("Enter a: ");
+        int a = in.nextInt();
+
+        System.out.print("Enter b: ");
+        int b = in.nextInt();
+
+        System.out.print("Enter c: ");
+        int c = in.nextInt();
+
+        int max = Integer.MIN_VALUE;
+        if (a >= max)
+            max = a;
+        if (b >= max)
+            max = b;
+        if (c >= max)
+            max = c;
+
+        System.out.print("\nMax Value: " + max);
+
+        int min = Integer.MAX_VALUE;
+        if (a <= min)
+            min = a;
+        if (b <= min)
+            min = b;
+        if (c <= min)
+            min = c;
+
+        System.out.print("\nMin Value: " + min);
+    }
+}
+
+
+
+// Q2. Write a program to determine whether a number is even or odd.
+
+import java.util.Scanner;
+
+public class Q2 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        System.out.print("Enter number: ");
+        int num = in.nextInt();
+
+        if (num % 2==0) {
+            System.out.print("Even");
+        } else {
+            System.out.print("Odd");
+        }
+    }
+}
+
+//Q3. Write a menu driven calculator to perform operations on two numbers.
+
+import java.util.Scanner;
+
+public class Q3 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        System.out.print("Enter a: ");
+        int a = in.nextInt();
+
+        System.out.print("Enter b: ");
+        int b = in.nextInt();
+
+        System.out.println("Calculator\n1.Addition\n2.Subtraction\n3.Multiplication\n4.Division");
+
+        System.out.print("Enter your choice: ");
+        int choice = in.nextInt();
+
+        switch (choice) {
+            case 1:
+                System.out.println("\nAddition: " + (a + b));
+                break;
+            case 2:
+                System.out.println("\nSubtraction: " + (a - b));
+                break;
+            case 3:
+                System.out.println("\nMultiplication: " + (a * b));
+                break;
+            case 4:
+                System.out.println("\nDivision: " + (a / b));
+                break;
+            default:
+                System.out.print("Invalid Operation");
+                break;
+        }
+    }
+}
