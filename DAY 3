@@ -1,0 +1,67 @@
+// Q1 Count total number of prime numbers in the 1 to 100 range.
+
+
+import java.util.Scanner;
+
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        // brute force
+        for (int i = 2; i <= 100; ++i) {
+            boolean isPrime = true;
+            for (int j = 2; j < i; ++j) {
+                if (i % j == 0) {
+                    isPrime = false;
+                }
+            }
+            if (isPrime) {
+                System.out.println(i);
+            }
+        }
+        
+        // Q2  Determine whether the number is palindrome or not.
+        
+          import java.util.Scanner;
+
+public class Q2 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+
+        int temp = n;
+        int rem = 0, sum = 0;
+        while (n > 0) {
+            rem = n % 10;
+            sum = (sum * 10) + rem;
+            n = n / 10;
+        }
+        if (temp == sum)
+            System.out.println("palindrome number ");
+        else
+            System.out.println("not palindrome");
+    }
+}
+
+// Q3 Write a program to print the n terms of Fibonacci series
+
+import java.util.Scanner;
+
+public class Q3 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int a = 0, b = 1, c = 0;
+
+        System.out.print(a + " " + b);
+        while (n > 2) {
+            c = a + b;
+            System.out.print(" " + c);
+            a = b;
+            b = c;
+            n = n - 1;
+        }
+    }
+}
