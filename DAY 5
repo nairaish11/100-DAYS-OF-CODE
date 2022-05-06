@@ -1,0 +1,165 @@
+// Write a function to print following patterns:
+a) Diamonnd Shape Pattern
+    *
+   ***
+  *****
+ *******
+*********
+ *******
+  *****
+   ***
+    * 
+    
+public class Q1 {
+    public static void main(String[] args) {
+        diamond();
+    }
+
+    private static void diamond() {
+        for (int i = 1; i <= 5; i++) {
+            for (int j = i; j < 5; j++) {
+                System.out.print(" ");
+            }
+
+            for (int j = 1; j <= 2 * i - 1; ++j) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+        for (int i = 4; i > 0; --i) {
+            for (int j = i; j <= 4; ++j) {
+                System.out.print(" ");
+            }
+
+            for (int j = 1; j <= 2 * i - 1; ++j) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+        
+b)  Sandglass pattern
+* * * * * 
+ * * * * 
+  * * * 
+   * * 
+    * 
+    * 
+   * * 
+  * * * 
+ * * * * 
+* * * * *
+
+public class Q2 {
+    public static void main(String[] args) {
+        sandglass();   
+    }
+
+    private static void sandglass() {
+        for (int i=5; i>0; --i) {
+            for (int j=i; j<5; ++j) {
+                System.out.print(" ");
+            }
+            for(int j=i; j> 0; --j) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+        for (int i=1; i<=5; ++i) {
+            for (int j=i; j<5; ++j) {
+                System.out.print(" ");
+            }
+            for(int j=i; j> 0; --j) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+c) hollow diamond 
+
+    *
+   * *
+  *   *
+ *     *
+*       *
+ *     *
+  *   *
+   * *
+    *
+    
+    
+public class Q3 {
+    public static void main(String[] args) {
+        hollowDiamond();
+    }
+
+    private static void hollowDiamond() {
+        for (int i = 1; i <= 5; ++i) {
+            for (int j = 5; j > i; --j) {
+                System.out.print(" ");
+            }
+            if (i != 1)
+                System.out.print("*");
+            for (int j = 1; j < (i - 1) * 2; ++j) {
+                System.out.print(" ");
+            }
+            System.out.println("*");
+        }
+        for (int i = 5; i > 0; --i) {
+            for (int j = 5; j > i; --j) {
+                System.out.print(" ");
+            }
+            if (i != 1)
+                System.out.print("*");
+            for (int j = 1; j < (i - 1) * 2; ++j) {
+                System.out.print(" ");
+            }
+            System.out.println("*");
+        }
+    }
+}
+
+d)  Pascal’s Triangle Program
+             1
+           1   1
+         1   2   1
+       1   3   3   1
+     1   4   6   4   1
+     
+public class Q4 {
+    public static void main(String[] args) {
+        pascalTriangle();
+    }
+
+    private static void pascalTriangle() {
+        int n = 4, i, j;
+
+        for (i = 0; i <= n; i++) {
+            for (j = 0; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            for (j = 0; j <= i; j++) {
+                System.out.print(" " + factorial(i) / (factorial(i - j) * factorial(j)));
+            }
+            System.out.println();
+        }
+    }
+
+    private static int factorial(int n) {
+        if (n == 0)
+            return 1;
+
+        int fact = 1;
+        for (int i = n; i > 1; --i) {
+            fact = fact * i;
+        }
+        return fact;
+    }
+}     
+     
+  
