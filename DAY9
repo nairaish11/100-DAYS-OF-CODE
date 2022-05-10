@@ -1,0 +1,50 @@
+//Q1 https://leetcode.com/problems/number-of-good-pairs/
+
+class Solution {
+    public int numIdenticalPairs(int[] nums) {
+        int res = 0, count[] = new int[101];
+        for (int a: nums) {
+            res += count[a]++;
+        }
+        return res;
+    }
+}
+
+//Q2 https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/
+
+class Solution {
+    public int[] smallerNumbersThanCurrent(int[] nums) {
+        int[] count = new int[101];
+
+        for (int a: nums) {
+            count[a] = count[a] + 1;
+        }
+
+        for (int i=1; i<101; ++i) {
+            count[i] = count[i] + count[i-1];
+        }
+
+        for (int i=0; i<nums.length; ++i) {
+            if (nums[i] != 0) {
+                nums[i] = count[nums[i]-1];   
+            }
+        }
+
+        return nums;
+    }
+}
+
+
+//Q3 https://leetcode.com/problems/shuffle-string/
+
+
+class Solution {
+   public static String restoreString(String s, int[] indices) {
+        char[] a = new char[s.length()];
+
+        for (int i = 0; i < indices.length; i++) {
+			a[indices[i]] = s.charAt(i);
+		}
+		return new String(a);
+    }
+}
