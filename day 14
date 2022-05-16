@@ -1,0 +1,62 @@
+https://leetcode.com/problems/maximum-erasure-value/
+
+class Solution {
+    public int maximumUniqueSubarray(int[] nums) {
+        short[] nmap = new short[10001];
+        int total = 0, best = 0;
+        for (int left = 0, right = 0; right < nums.length; right++) {
+            nmap[nums[right]]++;
+            total += nums[right];
+            while (nmap[nums[right]] > 1) {
+                nmap[nums[left]]--;
+                total -= nums[left++];
+            }
+            best = Math.max(best, total);
+        }
+        return best;
+    }
+}
+
+https://leetcode.com/problems/longest-repeating-character-replacement/
+
+public int characterReplacement(String s, int k) {
+int start=0;
+int longCharCount=0;
+Map<Character, Integer> map = new HashMap<>();
+int maxLength=0;
+
+    for(int end=0;end<s.length();end++){
+        char endchar = s.charAt(end);
+        map.put(endchar, map.getOrDefault(endchar,0)+1);
+        longCharCount = Math.max(longCharCount, map.get(endchar));
+        
+        if(end-start+1-longCharCount >k){
+            char startChar=s.charAt(start);
+            map.put(startChar, map.getOrDefault(startChar,0)-1);
+            start++;
+        }
+        
+        maxLength = Math.max(maxLength, end-start+1);
+    }
+    
+    return maxLength;
+
+}
+
+
+https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/
+
+class Solution {
+    public int maxScore(int[] C, int K) {
+        int total = 0;
+        for (int i = 0; i < K; i++) total += C[i];
+        int best = total;
+        for (int i = K - 1, j = C.length - 1; i >= 0; i--, j--) {
+            total += C[j] - C[i];
+            best = Math.max(best, total);
+        }
+        return best;
+    }
+}
+
+
