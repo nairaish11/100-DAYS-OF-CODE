@@ -1,0 +1,49 @@
+https://leetcode.com/problems/two-sum/
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        seen = {}
+        for index,number in enumerate(nums):
+            second_number = target-number
+            if second_number in seen:
+                return [seen[second_number], index]
+            else:
+                seen[number] = index
+
+https://leetcode.com/problems/find-all-anagrams-in-a-string/
+
+class Solution:
+    def findAnagrams(self, s: str, p: str) -> List[int]:
+        start = 0
+        stop = len(p)-1
+        found = []
+        count_s = Counter(s[start:stop])
+        count_p = Counter(p) 
+        for i in range(stop,len(s)):
+            first_letter = s[i-stop]
+            last_letter = s[i]
+            count_s[last_letter]+=1
+            if count_s == count_p:
+                found.append(i-stop)
+            if count_s[first_letter] == 1:
+                del count_s[first_letter]
+            else:
+                count_s[first_letter] -= 1
+        return found
+
+https://leetcode.com/problems/longest-turbulent-subarray/
+
+class Solution(object):
+    def maxTurbulenceSize(self, A):
+        """
+        :type A: List[int]
+        :rtype: int
+        """
+        result = 1
+        start = 0
+        for i in xrange(1, len(A)):
+            if i == len(A)-1 or \
+               cmp(A[i-1], A[i]) * cmp(A[i], A[i+1]) != -1:
+                result = max(result, i-start+1)
+                start = i
+        return result
